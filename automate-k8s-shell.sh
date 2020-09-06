@@ -13,16 +13,16 @@ read rname
 
 gcloud container clusters get-credentials $cname --region $rname &&
 
-echo "\033[1;35;40mcluster credentials has been generated for $cname at region $rname.!!\033[0m"
+echo "\033[1;35;40mcluster credentials have been generated for $cname at region $rname.!!\033[0m"
 
 
 read -p "Deploying jenkins app on kubernetes cluster, please enter to confirm!!" continue
 
 kubectl apply --filename hello-k8s-deploy.yaml &&
 
-echo "\033[1;35;40mJenkins using docker hub image have been deployed into kubernetes cluster $cname at region $rname.!!\033[0m"
+echo "\033[1;35;40mJenkins using docker hub image,which have been deployed into kubernetes cluster $cname at region $rname.!!\033[0m"
 
-read -p "Creating internal load balancer for all jenkins instances,please enter to confirm..." continue 
+read -p "Creating internal load balancer for all jenkins identical instances,please enter to confirm..." continue 
 			
 kubectl apply --filename hello-k8s-svc.yaml &&
 
@@ -30,15 +30,15 @@ echo "\033[1;35;40mNetwork service has been deployed into your kubernetes cluste
 
 kubectl get service &&
 
-echo "\033[1;35;40mNetwork service has been deployed and genretae the end point external ip of jenkins kubernetes cluster servers $cname at region $rname.!!\033[0m"
+echo "\033[1;35;40mNetwork service has been deployed now and genreting the end point external ip of jenkins kubernetes cluster server $cname at region $rname.!!\033[0m"
 
-sleep 7
+sleep 8
 
 kubectl get service
 
 echo "\033[1;35;40mPlease note down the external ip and use it in browser to acccess the jenkins url http://EXTERNAL-IP:8080 \033[0m"
 
-sleep 5 
+sleep 10
 
 kubectl get service
 
